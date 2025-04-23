@@ -1,6 +1,6 @@
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { useEffect } from 'react';
-import { getPokemonById, getPokemonSpecies } from '../services/pokemonService';
+import { getPokemonById, getPokemonSpecies } from '../services/PokemonService';
 
 export const usePokemon = (id) => {
   const queryClient = useQueryClient();

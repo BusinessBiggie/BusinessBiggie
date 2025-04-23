@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import './PokemonCard.css'; // optional CSS module or global styling
+import '../../PokemonCard.css'; // optional CSS module or global styling
 
 function PokemonCard({ id, name, image, types }) {
   return (

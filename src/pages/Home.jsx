@@ -3,8 +3,9 @@ import { useState } from 'react';
 import {
   getPokemonList,
   getPokemonDetailsFromList,
-} from '../services/pokemonService';
-import PokemonCard from '../components/PokemonCard';
+} from '../services/PokemonService';
+import PokemonCard from '../components/Pokemon/PokemonCard';
+import '../Home.css'; // Add this line if not already
 
 const PAGE_LIMIT = 20;
 
@@ -37,10 +38,10 @@ function Home() {
 
   return (
     <div className="home-page">
-      <h1>Pokédex</h1>
+      <h1 className="pokedex-title">Pokédex</h1>
 
-      {isLoading && <p>Loading Pokémon...</p>}
-      {error && <p>Error: {error.message}</p>}
+      {isLoading && <p className="status-text">Loading Pokémon...</p>}
+      {error && <p className="status-text error">Error: {error.message}</p>}
 
       <div className="pokemon-grid">
         {detailedData?.map((pokemon) => (
@@ -55,11 +56,18 @@ function Home() {
       </div>
 
       <div className="pagination-controls">
-        <button onClick={() => setPage((p) => Math.max(p - 1, 1))} disabled={page === 1}>
+        <button
+          className="pagination-button"
+          onClick={() => setPage((p) => Math.max(p - 1, 1))}
+          disabled={page === 1}
+        >
           ← Prev
         </button>
-        <span>Page {page}</span>
-        <button onClick={() => setPage((p) => p + 1)}>
+        <span className="page-number">Page {page}</span>
+        <button
+          className="pagination-button"
+          onClick={() => setPage((p) => p + 1)}
+        >
           Next →
         </button>
       </div>

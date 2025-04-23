@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
-import { usePokemon } from '../hooks/usePokemon';
+import { usePokemon } from '../hooks/UsePokemon';
 
 function PokemonDetail() {
   const { id } = useParams();
@@ -37,3 +37,4 @@ function PokemonDetail() {
     </div>
   );
 }
+export default PokemonDetail;

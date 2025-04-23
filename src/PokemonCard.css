@@ -1,0 +1,54 @@
+.pokemon-card {
+  display: block;
+  background-color: grey;
+  border-radius: 1rem;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+  width: 100%; 
+  box-sizing: border-box;
+}
+
+.pokemon-card:hover {
+  transform: translateY(-4px);
+}
+
+.pokemon-image {
+  width: 100%;
+  max-height: 140px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+
+.pokemon-name {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-transform: capitalize;
+}
+
+.type-badges {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.type-badge {
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  color: white;
+  text-transform: capitalize;
+}
+
+/* Example type color */
+.type-badge.grass { background-color: #78C850; }
+.type-badge.fire { background-color: #F08030; }
+.type-badge.water { background-color: #6890F0; }
+.type-badge.electric { background-color: #F8D030; }
+.type-badge.normal { background-color: #A8A878; }
+/* Add more if needed */
