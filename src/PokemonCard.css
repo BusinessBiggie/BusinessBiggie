@@ -14,7 +14,10 @@
 
 .pokemon-card:hover {
   transform: translateY(-4px);
-}
+    color: white;
+    text-decoration: none;
+  }
+  
 
 .pokemon-image {
   width: 100%;
@@ -29,6 +32,7 @@
   margin-bottom: 0.5rem;
   text-transform: capitalize;
 }
+
 
 .type-badges {
   display: flex;

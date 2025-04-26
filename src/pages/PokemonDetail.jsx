@@ -59,11 +59,10 @@ function PokemonDetail() {
         <div className="pokemon-info-container">
           {/* Text Info */}
           <div className="pokemon-text-content">
-          <h1 className="pokemon-name">
-  {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
-  <span className="pokemon-number">#{String(pokemon.id).padStart(3, '0')}</span>
-</h1>
-
+            <h1 className="pokemon-name">
+              {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
+              <span className="pokemon-number">#{String(pokemon.id).padStart(3, '0')}</span>
+            </h1>
 
             <p className="pokemon-description">{getEnglishFlavorText()}</p>
 
@@ -74,6 +73,26 @@ function PokemonDetail() {
                   {typeInfo.type.name}
                 </span>
               ))}
+            </div>
+
+            {/* Physical Stats */}
+            <div className="pokemon-physical-stats">
+              <div className="physical-attribute">
+                <strong>Height:</strong> {pokemon.height / 10} m
+              </div>
+              <div className="physical-attribute">
+                <strong>Weight:</strong> {pokemon.weight / 10} kg
+              </div>
+              <div className="physical-attribute">
+                <strong>Abilities:</strong>{" "}
+                {pokemon.abilities.map((a, index) => (
+                  <span key={a.ability.name}>
+                    {a.ability.name}
+                    {a.is_hidden && " (Hidden Ability)"}
+                    {index !== pokemon.abilities.length - 1 && ", "}
+                  </span>
+                ))}
+              </div>
             </div>
 
             {/* Base Stats */}
