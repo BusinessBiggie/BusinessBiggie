@@ -46,9 +46,24 @@
 }
 
 /* Example type color */
-.type-badge.grass { background-color: #78C850; }
-.type-badge.fire { background-color: #F08030; }
-.type-badge.water { background-color: #6890F0; }
-.type-badge.electric { background-color: #F8D030; }
-.type-badge.normal { background-color: #A8A878; }
+.type-badge.normal { background-color: #A8A77A; }
+.type-badge.fire { background-color: #EE8130; }
+.type-badge.water { background-color: #6390F0; }
+.type-badge.electric { background-color: #F7D02C; }
+.type-badge.grass { background-color: #7AC74C; }
+.type-badge.ice { background-color: #96D9D6; }
+.type-badge.fighting { background-color: #C22E28; }
+.type-badge.poison { background-color: #A33EA1; }
+.type-badge.ground { background-color: #E2BF65; }
+.type-badge.flying { background-color: #A98FF3; }
+.type-badge.psychic { background-color: #F95587; }
+.type-badge.bug { background-color: #A6B91A; }
+.type-badge.rock { background-color: #B6A136; }
+.type-badge.ghost { background-color: #735797; }
+.type-badge.dragon { background-color: #6F35FC; }
+.type-badge.dark { background-color: #705746; }
+.type-badge.steel { background-color: #B7B7CE; }
+.type-badge.fairy { background-color: #D685AD; }
+
+
 /* Add more if needed */
