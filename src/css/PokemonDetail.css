@@ -94,7 +94,7 @@
 
 .pokemon-detail-page .type-badge {
   padding: 0.4rem 0.8rem;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   font-size: 0.85rem;
   background: #666;
   color: white;
