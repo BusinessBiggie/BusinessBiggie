@@ -33,7 +33,6 @@
   text-transform: capitalize;
 }
 
-
 .type-badges {
   display: flex;
   justify-content: center;
@@ -49,7 +48,6 @@
   text-transform: capitalize;
 }
 
-/* Example type color */
 .type-badge.normal { background-color: #A8A77A; }
 .type-badge.fire { background-color: #EE8130; }
 .type-badge.water { background-color: #6390F0; }
@@ -68,6 +66,3 @@
 .type-badge.dark { background-color: #705746; }
 .type-badge.steel { background-color: #B7B7CE; }
 .type-badge.fairy { background-color: #D685AD; }
-
-
-/* Add more if needed */

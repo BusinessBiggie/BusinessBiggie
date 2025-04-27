@@ -1,76 +1,60 @@
 import { useQuery } from '@tanstack/react-query';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import {
-  getPokemonList,
-  getPokemonDetailsFromList,
-} from '../services/PokemonService';
-import PokemonCard from '../components/Pokemon/PokemonCard';
-import '../Home.css'; // Add this line if not already
+import { getPokemonList, getPokemonDetailsFromList } from '../services/PokemonService';
+import Loading from '../components/UI/Loading';
+import ErrorMessage from '../components/UI/ErrorMessage';
+import PaginationControls from '../components/UI/PaginationControls';
+import PokemonGrid from '../components/Pokemon/PokemonGrid';
+import '../css/Home.css';
+import SearchBar from '../components/SearchBar';
 
 const PAGE_LIMIT = 20;
+const ONE_HOUR = 1000 * 60 * 60;
 
 function Home() {
-  const [page, setPage] = useState(1);
+  const { pageId } = useParams();
+  const navigate = useNavigate();
+  const [page, setPage] = useState(pageId ? Number(pageId) : 1);
 
-  const {
-    data: listData,
-    isLoading: isListLoading,
-    error: listError,
-  } = useQuery({
+  const updatePage = (updater) => {
+    const newPage = updater(page);
+    setPage(newPage);
+    navigate(`/${newPage}`);
+  }
+
+  const { data: listData, isLoading: isListLoading, error: listError } = useQuery({
     queryKey: ['pokemonList', page],
     queryFn: () => getPokemonList(page, PAGE_LIMIT),
-    staleTime: 1000 * 60 * 5,
+    staleTime: ONE_HOUR,
   });
 
-  const {
-    data: detailedData,
-    isLoading: isDetailsLoading,
-    error: detailsError,
-  } = useQuery({
+  const { data: detailedData, isLoading: isDetailsLoading, error: detailsError } = useQuery({
     queryKey: ['pokemonDetails', page],
     queryFn: () => getPokemonDetailsFromList(listData?.results || []),
-    enabled: !!listData,
-    staleTime: 1000 * 60 * 5,
+    enabled: !!listData?.results?.length,
+    staleTime: ONE_HOUR,
   });
 
   const isLoading = isListLoading || isDetailsLoading;
   const error = listError || detailsError;
 
+  const hasMore = !!listData?.next; 
+  if(!isLoading && detailedData === undefined){
+    updatePage(() => 1);
+  }
+
   return (
     <div className="home-page">
       <h1 className="pokedex-title">Pokédex</h1>
 
-      {isLoading && <p className="status-text">Loading Pokémon...</p>}
-      {error && <p className="status-text error">Error: {error.message}</p>}
+      {isLoading && <Loading />}
+      {error && <ErrorMessage error={error} />}
+      <SearchBar/>
 
-      <div className="pokemon-grid">
-        {detailedData?.map((pokemon) => (
-          <PokemonCard
-            key={pokemon.id}
-            id={pokemon.id}
-            name={pokemon.name}
-            image={pokemon.sprites.other['official-artwork'].front_default}
-            types={pokemon.types.map((t) => t.type.name)}
-          />
-        ))}
-      </div>
+      <PokemonGrid pokemons={detailedData} />
 
-      <div className="pagination-controls">
-        <button
-          className="pagination-button"
-          onClick={() => setPage((p) => Math.max(p - 1, 1))}
-          disabled={page === 1}
-        >
-          ← Prev
-        </button>
-        <span className="page-number">Page {page}</span>
-        <button
-          className="pagination-button"
-          onClick={() => setPage((p) => p + 1)}
-        >
-          Next →
-        </button>
-      </div>
+      <PaginationControls page={page} setPage={updatePage} hasMore={hasMore} />
     </div>
   );
 }

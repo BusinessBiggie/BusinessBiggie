@@ -31,7 +31,6 @@
   z-index: 1;
 }
 
-/* Card */
 .pokemon-detail-page .pokemon-detail-card {
   display: flex;
   justify-content: center;
@@ -74,7 +73,6 @@
   display: block;
 }
 
-/* Text Content */
 .pokemon-detail-page .pokemon-name {
   font-size: 2.5rem;
   margin-bottom: 1rem;
@@ -157,40 +155,6 @@
 .pokemon-detail-page .physical-attribute {
   margin-bottom: 0.5rem;
   font-size: 1rem;
-}
-
-
-/* Pagination Buttons */
-.pokemon-detail-page .pagination-controls {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  margin-top: 2rem;
-}
-
-.pokemon-detail-page .pagination-button {
-  padding: 0.5rem 1rem;
-  border: none;
-  background-color: #e65a38;
-  color: white;
-  font-size: 1rem;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background 0.2s ease;
-}
-
-.pokemon-detail-page .pagination-button:hover {
-  background-color: #e65b389c;
-}
-
-.pokemon-detail-page .detailed-pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
 }
 
 .pokemon-detail-page .detailed-button {
@@ -306,16 +270,18 @@
 
   .pokemon-detail-page .pagination-controls {
     flex-direction: row;
-    flex-wrap: nowrap; /* DO NOT allow wrapping */
+    flex-wrap: nowrap; 
     justify-content: center;
-    gap: 0.5rem; /* Small gap between buttons */
+    gap: 0.5rem; 
     margin-bottom: 2rem;
   }
 
   .pokemon-detail-page .detailed-button {
-    width: auto; /* Allow button to shrink naturally */
-    min-width: 90px; /* Set a safe min size */
-    flex: 1 1 auto; /* Let them flex and shrink nicely */
+    width: auto; 
+    min-width: 90px; 
+    flex: 1 1 auto; 
+    text-decoration: none;
+
   }
 
 
@@ -324,7 +290,7 @@
     }
   
     .pokemon-detail-page .nav-text > div:first-child {
-      display: none; /* hides the #number */
+      display: none; 
     }
   
   
