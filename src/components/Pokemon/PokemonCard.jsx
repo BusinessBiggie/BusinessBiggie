@@ -5,6 +5,7 @@ function PokemonCard({ id, name, image, types }) {
   return (
     <Link to={`/pokemon/${id}`} className="pokemon-card">
       <div className="card-inner">
+        <h5 className="pokemon-id">#{String(id).padStart(3, '0')}</h5>
         <img src={image} alt={name} className="pokemon-image" />
         <h3 className="pokemon-name">{name.charAt(0).toUpperCase() + name.slice(1)}</h3>
         <div className="type-badges">

@@ -10,6 +10,7 @@
   color: inherit;
   width: 100%; 
   box-sizing: border-box;
+  position: relative;
 }
 
 .pokemon-card:hover {
@@ -46,6 +47,17 @@
   font-size: 0.75rem;
   color: white;
   text-transform: capitalize;
+}
+
+.pokemon-id {
+  position: absolute;
+  top: -1rem;
+  left: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: white;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.5rem;
 }
 
 .type-badge.normal { background-color: #A8A77A; }
