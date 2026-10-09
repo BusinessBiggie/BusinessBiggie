@@ -1,4 +1,4 @@
-# 🫪 About Me:
+# 🚀 About Me:
 Hi! I am Anna :)<br><br>Currently I am up to:<br>* Writing my bachelor's project in Rust<br>* Tinkering with NanoFramework<br>* Digging into Wikipedia rabbit holes<br>* Figuring out how to make the worlds best espresso shot (Still working on it...)
 
 
